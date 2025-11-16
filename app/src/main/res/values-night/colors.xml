@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="text">#FF000000</color>
+    <color name="background">#292929</color>
+    <color name="arrow_color">#FFFFFF</color> <!-- white for dark mode -->
+    <color name="sun">#FFFFFF</color> <!-- white for dark mode -->
+</resources>

@@ -1,0 +1,27 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="28dp"
+    android:height="28dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+
+    <!-- Rounded square background -->
+    <path
+        android:pathData="M0,10
+                          A10,10 0 0 1 10,0
+                          L90,0
+                          A10,10 0 0 1 100,10
+                          L100,90
+                          A10,10 0 0 1 90,100
+                          L10,100
+                          A10,10 0 0 1 0,90
+                          Z"/>
+
+    <!-- Left chevron -->
+    <path
+        android:strokeColor="@color/arrow_color"
+        android:strokeWidth="8"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M64,22 L36,50 L64,78"/>
+</vector>
