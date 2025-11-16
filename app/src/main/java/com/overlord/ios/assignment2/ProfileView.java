@@ -12,6 +12,7 @@ import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -72,6 +73,7 @@ public class ProfileView extends Fragment {
 
 
     TextView name, phone, email, gender, notification, password;
+    ImageButton theme, exit;
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -82,10 +84,26 @@ public class ProfileView extends Fragment {
         gender = view.findViewById(R.id.gender);
         notification = view.findViewById(R.id.notification);
         password = view.findViewById(R.id.password);
+        theme = view.findViewById(R.id.theme);
+        exit = view.findViewById(R.id.exit);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         PreferenceHelper helper = new PreferenceHelper();
 
         helper.DisplayHome(prefs, name, phone, email, password, gender, notification);
+
+        theme.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                helper.changeTheme(prefs, prefs.edit());
+            }
+        });
+
+        exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                requireActivity().finishAffinity();
+            }
+        });
     }
 }

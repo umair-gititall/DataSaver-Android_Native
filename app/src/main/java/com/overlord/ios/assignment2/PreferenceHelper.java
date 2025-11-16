@@ -3,9 +3,13 @@ package com.overlord.ios.assignment2;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.util.Patterns;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatDelegate;
 
 import org.w3c.dom.Text;
 
@@ -34,7 +38,9 @@ public class PreferenceHelper {
         String Gender = prefs.getString("gender", "Not Set");
         String Notification = prefs.getString("notification", "Not Set");
         String Password = prefs.getString("password", "Not Set");
+        String Theme = prefs.getString("theme", "Light");
 
+        setTheme(Theme);
         name.setText(Name);
         phone.setText(Phone);
         email.setText(Email);
@@ -50,20 +56,64 @@ public class PreferenceHelper {
         String Gender = prefs.getString("gender", "Not Set");
         String Notification = prefs.getString("notification", "Not Set");
         String Password = prefs.getString("password", "Not Set");
+        String Theme = prefs.getString("theme", "Light");
 
+        setTheme(Theme);
         name.setHint(Name);
+        name.setText("");
         phone.setHint(Phone);
+        phone.setText("");
         email.setHint(Email);
+        email.setText("");
         if (Gender.equals("Male"))
             gender.setChecked(true);
-        else
+        else if(Gender.equals("Female"))
             gender2.setChecked(true);
         if (Notification.equals("Enabled"))
             notification.setChecked(true);
         else
             notification2.setChecked(true);
         password.setHint(Password);
+        password.setText("");
     }
 
+    public void setTheme(String theme)
+    {
+        if(theme.equals("Light"))
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        else
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+    }
+    public void changeTheme(SharedPreferences prefs, SharedPreferences.Editor editor)
+    {
+        String Theme = prefs.getString("theme", "Light");
+
+        if(Theme.equals("Light")) {
+            editor.putString("theme", "Dark");
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }
+        else {
+            editor.putString("theme", "Light");
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
+        editor.apply();
+    }
+    
+    public String validate(EditText name, EditText phone, EditText email, EditText password)
+    {
+        if(name.length() > 0)
+            if(!name.getText().toString().matches("[a-zA-z]+"))
+                return "Invalid Name";
+        if(email.length() > 0)
+            if(!Patterns.EMAIL_ADDRESS.matcher(email.getText()).matches())
+                return "Invalid Email Address";
+        if(phone.length() > 0)
+            if(!phone.getText().toString().matches("\\+?\\d{10,15}"))
+                return "Invalid Phone Number";
+        if(password.length() > 0)
+            if(password.length() < 8)
+                return "Min Password Length = 8";
+        return "";
+    }
 
 }
