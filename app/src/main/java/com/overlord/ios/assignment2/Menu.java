@@ -121,7 +121,7 @@ public class Menu extends Fragment {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         SharedPreferences.Editor editor = prefs.edit();
         PreferenceHelper helper = new PreferenceHelper();
-        helper.DisplayEdit(prefs, et[0], et[2], et[1], et[3], genderOption[0], genderOption[1], notificationOption[0], notificationOption[1]);
+        helper.DisplayEdit(prefs, et[0], et[2], et[1], et[3], genderOption[0], genderOption[1], notificationOption[0], notificationOption[1], txt);
 
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,15 +142,14 @@ public class Menu extends Fragment {
                         Toast.makeText(getContext(), alert, Toast.LENGTH_SHORT).show();
                         return;
                     }
-                    helper.SetPrefs(editor, et[0], et[2], et[1], et[3], GENDERS, NOTIFICATIONS);
 
                     Calendar temp = Calendar.getInstance();
                     int day = temp.get(Calendar.DAY_OF_MONTH);
                     int month = temp.get(Calendar.MONTH) + 1;
                     int year = temp.get(Calendar.YEAR);
-
                     txt.setText(day+"/"+month+"/"+year);
 
+                    helper.SetPrefs(editor, et[0], et[2], et[1], et[3], GENDERS, NOTIFICATIONS, txt.getText().toString());
                     edit.setText("Edit Profile");
                 }
 
@@ -185,7 +184,7 @@ public class Menu extends Fragment {
                     Toast.makeText(getContext(), alert, Toast.LENGTH_SHORT);
                     return;
                 }
-                helper.SetPrefs(editor, et[0], et[2], et[1], et[3], GENDERS, NOTIFICATIONS);
+                helper.SetPrefs(editor, et[0], et[2], et[1], et[3], GENDERS, NOTIFICATIONS, txt.getText().toString());
                 helper.changeTheme(prefs, editor);
             }
         });
@@ -197,7 +196,7 @@ public class Menu extends Fragment {
                 editor.apply();
                 genderOption[0].setChecked(false);
                 genderOption[1].setChecked(false);
-                helper.DisplayEdit(prefs, et[0], et[2], et[1], et[3], genderOption[0], genderOption[1], notificationOption[0], notificationOption[1]);
+                helper.DisplayEdit(prefs, et[0], et[2], et[1], et[3], genderOption[0], genderOption[1], notificationOption[0], notificationOption[1], txt);
             }
         });
     }

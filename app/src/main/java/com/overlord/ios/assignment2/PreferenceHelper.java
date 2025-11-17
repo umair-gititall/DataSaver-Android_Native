@@ -15,7 +15,7 @@ import org.w3c.dom.Text;
 
 public class PreferenceHelper {
 
-    public void SetPrefs(SharedPreferences.Editor editor, EditText name, EditText phone, EditText email, EditText password, String gender, String notification) {
+    public void SetPrefs(SharedPreferences.Editor editor, EditText name, EditText phone, EditText email, EditText password, String gender, String notification, String time) {
         if (name.getText().length() > 0)
             editor.putString("name", name.getText().toString());
         if (email.getText().length() > 0)
@@ -28,6 +28,8 @@ public class PreferenceHelper {
             editor.putString("notification", notification);
         if (password.getText().length() > 0)
             editor.putString("password", password.getText().toString());
+        if(time.length() > 0)
+            editor.putString("time", time);
         editor.apply();
     }
 
@@ -49,7 +51,7 @@ public class PreferenceHelper {
         password.setText(Password);
     }
 
-    public void DisplayEdit(SharedPreferences prefs, EditText name, TextView phone, EditText email, EditText password, RadioButton gender, RadioButton gender2, RadioButton notification, RadioButton notification2) {
+    public void DisplayEdit(SharedPreferences prefs, EditText name, TextView phone, EditText email, EditText password, RadioButton gender, RadioButton gender2, RadioButton notification, RadioButton notification2, TextView txt) {
         String Name = prefs.getString("name", "Not Set");
         String Email = prefs.getString("email", "Not Set");
         String Phone = prefs.getString("phone", "Not Set");
@@ -57,6 +59,7 @@ public class PreferenceHelper {
         String Notification = prefs.getString("notification", "Not Set");
         String Password = prefs.getString("password", "Not Set");
         String Theme = prefs.getString("theme", "Light");
+        String Time = prefs.getString("time", "NaN");
 
         setTheme(Theme);
         name.setHint(Name);
@@ -75,6 +78,7 @@ public class PreferenceHelper {
             notification2.setChecked(true);
         password.setHint(Password);
         password.setText("");
+        txt.setText(Time);
     }
 
     public void setTheme(String theme)
