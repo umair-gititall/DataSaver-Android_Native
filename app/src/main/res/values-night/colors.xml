@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="text">#FF000000</color>
+    <color name="sunoutline">#00000000</color>
     <color name="background">#292929</color>
-    <color name="arrow_color">#FFFFFF</color> <!-- white for dark mode -->
-    <color name="sun">#FFFFFF</color> <!-- white for dark mode -->
+    <color name="arrow_color">#FFFFFF</color>
+    <color name="sun">#e5e5e5</color>
+    <color name="theme">#F7DDAD</color>
 </resources>

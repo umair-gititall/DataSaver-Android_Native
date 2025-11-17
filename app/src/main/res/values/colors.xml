@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="sunoutline">#FF000000</color>
     <color name="background">#FFFFFFFF</color>
-    <color name="text">#FF000000</color>
     <color name="arrow_color">#000000</color>
     <color name="sun">#F7DDAD</color>
+    <color name="theme">#FF000000</color>
     <color name="Red">#FF0000</color>
     <color name="light_transparent_red">#33FF0000</color>
 

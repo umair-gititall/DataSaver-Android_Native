@@ -38,17 +38,26 @@ public class PreferenceHelper {
         String Email = prefs.getString("email", "Not Set");
         String Phone = prefs.getString("phone", "Not Set");
         String Gender = prefs.getString("gender", "Not Set");
-        String Notification = prefs.getString("notification", "Not Set");
+        String Notification = prefs.getString("notification", "Disabled");
         String Password = prefs.getString("password", "Not Set");
         String Theme = prefs.getString("theme", "Light");
 
         setTheme(Theme);
-        name.setText(Name);
-        phone.setText(Phone);
-        email.setText(Email);
-        gender.setText(Gender);
-        notification.setText(Notification);
-        password.setText(Password);
+        name.setText(" "+ Name);
+        phone.setText(" " + Phone);
+        email.setText(" "+ Email);
+        if(Gender.equals("Male"))
+            gender.setCompoundDrawablesWithIntrinsicBounds(R.drawable.boy_svgrepo_com,0,0, 0);
+        if(Gender.equals("Female"))
+            gender.setCompoundDrawablesWithIntrinsicBounds(R.drawable.girl_svgrepo_com,0,0, 0);
+        gender.setText(" " + Gender);
+        if(Notification.equals("Enabled"))
+            notification.setCompoundDrawablesWithIntrinsicBounds(R.drawable.smartphone_svgrepo_com, 0, 0, 0);
+        else
+            notification.setCompoundDrawablesWithIntrinsicBounds(R.drawable.smartphone_vibration_svgrepo_com, 0, 0, 0);
+
+        notification.setText(" " + Notification);
+        password.setText(" " + Password);
     }
 
     public void DisplayEdit(SharedPreferences prefs, EditText name, TextView phone, EditText email, EditText password, RadioButton gender, RadioButton gender2, RadioButton notification, RadioButton notification2, TextView txt) {
@@ -62,11 +71,11 @@ public class PreferenceHelper {
         String Time = prefs.getString("time", "NaN");
 
         setTheme(Theme);
-        name.setHint(Name);
+        name.setHint(" "+ Name);
         name.setText("");
-        phone.setHint(Phone);
+        phone.setHint(" "+Phone);
         phone.setText("");
-        email.setHint(Email);
+        email.setHint(" "+Email);
         email.setText("");
         if (Gender.equals("Male"))
             gender.setChecked(true);
@@ -76,7 +85,11 @@ public class PreferenceHelper {
             notification.setChecked(true);
         else
             notification2.setChecked(true);
-        password.setHint(Password);
+
+        String temp = "•".repeat(Password.length());
+        password.setHint(" " + temp);
+        if(Password.equals("Not Set"))
+            password.setHint(" " + Password);
         password.setText("");
         txt.setText(Time);
     }
@@ -106,13 +119,13 @@ public class PreferenceHelper {
     public String validate(EditText name, EditText phone, EditText email, EditText password)
     {
         if(name.length() > 0)
-            if(!name.getText().toString().matches("[a-zA-z]+"))
+            if(!name.getText().toString().matches("[a-zA-z ]+"))
                 return "Invalid Name";
         if(email.length() > 0)
             if(!Patterns.EMAIL_ADDRESS.matcher(email.getText()).matches())
                 return "Invalid Email Address";
         if(phone.length() > 0)
-            if(!phone.getText().toString().matches("\\+?\\d{10,15}"))
+            if(!phone.getText().toString().matches("\\+?\\d{10,12}"))
                 return "Invalid Phone Number";
         if(password.length() > 0)
             if(password.length() < 8)

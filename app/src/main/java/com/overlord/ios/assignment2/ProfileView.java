@@ -1,5 +1,6 @@
 package com.overlord.ios.assignment2;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -8,6 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -102,6 +104,8 @@ public class ProfileView extends Fragment {
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Vibrator vib = (Vibrator) getContext().getSystemService(Context.VIBRATOR_SERVICE);
+                vib.vibrate(80);
                 requireActivity().finishAffinity();
             }
         });

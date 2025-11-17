@@ -1,12 +1,15 @@
 package com.overlord.ios.assignment2;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.provider.SyncStateContract;
 import android.view.LayoutInflater;
@@ -126,6 +129,8 @@ public class Menu extends Fragment {
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Vibrator vib = (Vibrator) getContext().getSystemService(Context.VIBRATOR_SERVICE);
+                vib.vibrate(80);
                 Boolean check = et[0].isEnabled();
 
                 if (!check) edit.setText("Save");
@@ -151,6 +156,7 @@ public class Menu extends Fragment {
 
                     helper.SetPrefs(editor, et[0], et[2], et[1], et[3], GENDERS, NOTIFICATIONS, txt.getText().toString());
                     edit.setText("Edit Profile");
+                    Toast.makeText(getContext(), "Data Saved", Toast.LENGTH_SHORT).show();
                 }
 
                 et[0].setEnabled(!check);
@@ -184,19 +190,29 @@ public class Menu extends Fragment {
                     Toast.makeText(getContext(), alert, Toast.LENGTH_SHORT);
                     return;
                 }
+
                 helper.SetPrefs(editor, et[0], et[2], et[1], et[3], GENDERS, NOTIFICATIONS, txt.getText().toString());
                 helper.changeTheme(prefs, editor);
             }
         });
 
-        reset.setOnClickListener(new View.OnClickListener() {
+        reset.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
-            public void onClick(View v) {
+            public boolean onLongClick(View v) {
                 editor.clear();
                 editor.apply();
                 genderOption[0].setChecked(false);
                 genderOption[1].setChecked(false);
                 helper.DisplayEdit(prefs, et[0], et[2], et[1], et[3], genderOption[0], genderOption[1], notificationOption[0], notificationOption[1], txt);
+                return true;
+            }
+        });
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Vibrator vib = (Vibrator) getContext().getSystemService(Context.VIBRATOR_SERVICE);
+                vib.vibrate(80);
+                Toast.makeText(getContext(), "Hold to Reset!", Toast.LENGTH_SHORT).show();
             }
         });
     }

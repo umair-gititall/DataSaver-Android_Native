@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Assignment 2"
+rootProject.name = "Data Saver"
 include(":app")
  

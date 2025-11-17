@@ -23,7 +23,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="Profile"
+                android:text="Edit Profile"
                 android:textSize="30dp" />
 
             <ImageButton
@@ -63,6 +63,7 @@
                 android:layout_alignLeft="@+id/name"
                 android:layout_marginHorizontal="50dp"
                 android:background="@color/background"
+                android:textColor="@color/theme"
                 android:elevation="0.11dp"
                 android:gravity="center"
                 android:text="Full Name"
@@ -76,6 +77,7 @@
                 android:layout_marginTop="10dp"
                 android:background="@drawable/input"
                 android:enabled="false"
+                android:drawableStart="@drawable/profile_tick_svgrepo_com"
                 android:padding="15dp"
                 android:singleLine="true" />
 
@@ -87,6 +89,7 @@
                 android:layout_alignLeft="@+id/email"
                 android:layout_marginHorizontal="50dp"
                 android:background="@color/background"
+                android:textColor="@color/theme"
                 android:elevation="0.11dp"
                 android:gravity="center"
                 android:text="E-Mail"
@@ -102,6 +105,7 @@
                 android:background="@drawable/input"
                 android:enabled="false"
                 android:padding="15dp"
+                android:drawableStart="@drawable/letter_unread_svgrepo_com"
                 android:singleLine="true"
                 android:inputType="textEmailAddress"/>
 
@@ -112,6 +116,7 @@
                 android:layout_alignLeft="@+id/phone"
                 android:layout_marginHorizontal="50dp"
                 android:background="@color/background"
+                android:textColor="@color/theme"
                 android:elevation="0.11dp"
                 android:gravity="center"
                 android:text="Phone No"
@@ -127,6 +132,7 @@
                 android:background="@drawable/input"
                 android:enabled="false"
                 android:padding="15dp"
+                android:drawableStart="@drawable/smartphone_vibration_svgrepo_com"
                 android:singleLine="true"
                 android:inputType="phone"/>
 
@@ -137,6 +143,7 @@
                 android:layout_alignLeft="@+id/password"
                 android:layout_marginHorizontal="50dp"
                 android:background="@color/background"
+                android:textColor="@color/theme"
                 android:elevation="0.11dp"
                 android:gravity="center"
                 android:text="Password"
@@ -152,6 +159,7 @@
                 android:background="@drawable/input"
                 android:enabled="false"
                 android:padding="15dp"
+                android:drawableStart="@drawable/fingerprint_svgrepo_com"
                 android:inputType="textPassword"
                 android:singleLine="true" />
 
@@ -162,6 +170,7 @@
                 android:layout_alignLeft="@+id/radios"
                 android:layout_marginHorizontal="23dp"
                 android:background="@color/background"
+                android:textColor="@color/theme"
                 android:elevation="0.11dp"
                 android:gravity="center"
                 android:text="Gender"
@@ -173,6 +182,7 @@
                 android:layout_alignRight="@+id/radios"
                 android:layout_marginHorizontal="40dp"
                 android:background="@color/background"
+                android:textColor="@color/theme"
                 android:elevation="0.11dp"
                 android:gravity="center"
                 android:text="Notifications"
@@ -247,9 +257,10 @@
                 android:layout_below="@+id/radios"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="24dp"
-                android:backgroundTint="@android:color/holo_purple"
+                android:backgroundTint="@color/theme"
                 android:text="Edit Profile"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="@color/background"/>
 
             <RelativeLayout
                 android:layout_marginTop="30dp"
@@ -270,7 +281,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
                         android:layout_marginStart="10dp"
-                        android:text="Updated " />
+                        android:text="Updated: " />
 
                     <TextView
                         android:id="@+id/t2"
