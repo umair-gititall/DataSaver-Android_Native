@@ -58,13 +58,13 @@
                 android:background="@drawable/profile"
                 android:clipToOutline="true"
                 android:src="@drawable/qs" />
-            
+
             <TextView
                 android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Muhammad Umair"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
         </LinearLayout>
 
         <RelativeLayout
@@ -76,53 +76,52 @@
                 android:id="@+id/info1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                >
-            <TextView
-                android:layout_width="70dp"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/phone"
-                android:layout_marginHorizontal="13dp"
-                android:background="@color/background"
-                android:textColor="@color/theme"
-                android:elevation="0.11dp"
-                android:gravity="center"
-                android:text="Phone No"
-                android:textStyle="bold" />
+                android:gravity="center">
 
-            <TextView
-                android:id="@+id/phone"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginHorizontal="10dp"
-                android:background="@drawable/displayprofile"
-                android:drawableBottom="@drawable/smartphone_vibration_svgrepo_com"
-                android:padding="15dp" />
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/phone"
+                    android:layout_marginHorizontal="13dp"
+                    android:background="@color/background"
+                    android:elevation="0.11dp"
+                    android:gravity="center"
+                    android:text="Phone No"
+                    android:textColor="@color/theme"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/email"
-                android:layout_marginHorizontal="18dp"
-                android:background="@color/background"
-                android:textColor="@color/theme"
-                android:elevation="0.11dp"
-                android:gravity="center"
-                android:text="E-Mail"
-                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/phone"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/displayprofile"
+                    android:drawableBottom="@drawable/smartphone_vibration_svgrepo_com"
+                    android:padding="15dp" />
 
-            <TextView
-                android:id="@+id/email"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginHorizontal="10dp"
-                android:background="@drawable/displayprofile"
-                android:layout_toRightOf="@+id/phone"
-                android:drawableBottom="@drawable/letter_unread_svgrepo_com"
-                android:padding="15dp"
-                />
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/email"
+                    android:layout_marginHorizontal="18dp"
+                    android:background="@color/background"
+                    android:elevation="0.11dp"
+                    android:gravity="center"
+                    android:text="E-Mail"
+                    android:textColor="@color/theme"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/email"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/phone"
+                    android:background="@drawable/displayprofile"
+                    android:drawableBottom="@drawable/letter_unread_svgrepo_com"
+                    android:padding="15dp" />
             </RelativeLayout>
 
             <TextView
@@ -132,10 +131,10 @@
                 android:layout_alignLeft="@+id/gender"
                 android:layout_marginHorizontal="15dp"
                 android:background="@color/background"
-                android:textColor="@color/theme"
                 android:elevation="0.11dp"
                 android:gravity="center"
                 android:text="Gender"
+                android:textColor="@color/theme"
                 android:textStyle="bold" />
 
             <TextView
@@ -145,8 +144,8 @@
                 android:layout_below="@+id/info1"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
-                android:gravity="center_vertical"
                 android:background="@drawable/input"
+                android:gravity="center_vertical"
                 android:padding="15dp" />
 
             <TextView
@@ -156,10 +155,10 @@
                 android:layout_alignLeft="@+id/notification"
                 android:layout_marginHorizontal="20dp"
                 android:background="@color/background"
-                android:textColor="@color/theme"
                 android:elevation="0.11dp"
                 android:gravity="center"
                 android:text="Notifications"
+                android:textColor="@color/theme"
                 android:textStyle="bold" />
 
             <TextView
@@ -180,10 +179,10 @@
                 android:layout_alignLeft="@+id/password"
                 android:layout_marginHorizontal="20dp"
                 android:background="@color/background"
-                android:textColor="@color/theme"
                 android:elevation="0.11dp"
                 android:gravity="center"
                 android:text="Password"
+                android:textColor="@color/theme"
                 android:textStyle="bold" />
 
             <TextView
@@ -196,7 +195,7 @@
                 android:background="@drawable/input"
                 android:drawableStart="@drawable/fingerprint_svgrepo_com"
                 android:gravity="center_vertical"
-                android:padding="15dp"/>
+                android:padding="15dp" />
         </RelativeLayout>
     </LinearLayout>
 </FrameLayout>

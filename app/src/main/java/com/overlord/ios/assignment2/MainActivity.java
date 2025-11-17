@@ -38,8 +38,7 @@ public class MainActivity extends AppCompatActivity {
             frag = new Menu();
             LoadedFrag = "Menu";
             tabs.getTabAt(1).select();
-        }
-        else {
+        } else {
             frag = new ProfileView();
             LoadedFrag = "Profile";
         }

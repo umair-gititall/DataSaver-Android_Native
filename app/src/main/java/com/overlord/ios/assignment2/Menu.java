@@ -138,12 +138,12 @@ public class Menu extends Fragment {
                     String GENDERS = "";
                     String NOTIFICATIONS = "";
 
-                    GENDERS = genderOption[0].isChecked() ? "Male" : "Female";
+                    if (genderOption[0].isChecked()) GENDERS = "Male";
+                    else if (genderOption[1].isChecked()) GENDERS = "Female";
                     NOTIFICATIONS = notificationOption[0].isChecked() ? "Enabled" : "Disabled";
 
                     String alert = helper.validate(et[0], et[2], et[1], et[3]);
-                    if(!alert.isEmpty())
-                    {
+                    if (!alert.isEmpty()) {
                         Toast.makeText(getContext(), alert, Toast.LENGTH_SHORT).show();
                         return;
                     }
@@ -152,7 +152,7 @@ public class Menu extends Fragment {
                     int day = temp.get(Calendar.DAY_OF_MONTH);
                     int month = temp.get(Calendar.MONTH) + 1;
                     int year = temp.get(Calendar.YEAR);
-                    txt.setText(day+"/"+month+"/"+year);
+                    txt.setText(day + "/" + month + "/" + year);
 
                     helper.SetPrefs(editor, et[0], et[2], et[1], et[3], GENDERS, NOTIFICATIONS, txt.getText().toString());
                     edit.setText("Edit Profile");
@@ -177,16 +177,13 @@ public class Menu extends Fragment {
                 String NOTIFICATIONS = "";
 
 
-                if(genderOption[0].isChecked())
-                    GENDERS = "Male";
-                else if(genderOption[1].isChecked())
-                    GENDERS = "Female";
+                if (genderOption[0].isChecked()) GENDERS = "Male";
+                else if (genderOption[1].isChecked()) GENDERS = "Female";
 
                 NOTIFICATIONS = notificationOption[0].isChecked() ? "Enabled" : "Disabled";
 
                 String alert = helper.validate(et[0], et[2], et[1], et[3]);
-                if(!alert.isEmpty())
-                {
+                if (!alert.isEmpty()) {
                     Toast.makeText(getContext(), alert, Toast.LENGTH_SHORT);
                     return;
                 }
