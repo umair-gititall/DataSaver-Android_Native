@@ -204,6 +204,7 @@ public class Menu extends Fragment {
                 genderOption[0].setChecked(false);
                 genderOption[1].setChecked(false);
                 helper.DisplayEdit(prefs, et[0], et[2], et[1], et[3], genderOption[0], genderOption[1], notificationOption[0], notificationOption[1], txt);
+                Toast.makeText(getContext(), "Data Reset Successful!", Toast.LENGTH_SHORT).show();
                 return true;
             }
         });

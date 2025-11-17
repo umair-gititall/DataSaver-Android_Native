@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     Fragment frag = null;
     FragmentManager Manager;
     FragmentTransaction Transaction;
+    String LoadedFrag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +33,17 @@ public class MainActivity extends AppCompatActivity {
 
         tabs = findViewById(R.id.tabs);
         frame = findViewById(R.id.homePage);
-        frag = new ProfileView();
+
+        if (savedInstanceState != null && savedInstanceState.getString("Frag").equals("Menu")) {
+            frag = new Menu();
+            LoadedFrag = "Menu";
+            tabs.getTabAt(1).select();
+        }
+        else {
+            frag = new ProfileView();
+            LoadedFrag = "Profile";
+        }
+
         Manager = getSupportFragmentManager();
         Transaction = Manager.beginTransaction();
         Transaction.replace(R.id.homePage, frag);
@@ -46,9 +58,11 @@ public class MainActivity extends AppCompatActivity {
                 switch (tab.getPosition()) {
                     case 0:
                         frag = new ProfileView();
+                        LoadedFrag = "Profile";
                         break;
                     case 1:
                         frag = new Menu();
+                        LoadedFrag = "Menu";
                         break;
                 }
                 Transaction = Manager.beginTransaction();
@@ -69,5 +83,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("Frag", LoadedFrag);
     }
 }
